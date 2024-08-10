@@ -21,6 +21,8 @@ elif cat /etc/issue | grep -Eqi "ubuntu"; then
     release="ubuntu"
 elif cat /etc/issue | grep -Eqi "centos|red hat|redhat"; then
     release="centos"
+elif cat /etc/issue | grep -Eqi "Fedora|almalinux|rocky"; then
+    release="red hat"
 elif cat /proc/version | grep -Eqi "debian"; then
     release="debian"
 elif cat /proc/version | grep -Eqi "ubuntu"; then
@@ -29,8 +31,6 @@ elif cat /proc/version | grep -Eqi "alpine"; then
     release="alpine"
 elif cat /proc/version | grep -Eqi "centos|red hat|redhat"; then
     release="centos"
-else
-    echo -e "${red}未知系统！${plain}\n" && exit 1
 fi
 
 arch=$(arch)
@@ -64,7 +64,7 @@ fi
 
 if [[ x"${release}" == x"centos" ]]; then
     if [[ ${os_version} -le 6 ]]; then
-        echo -e "${red}请使用 CentOS 7 或更高版本的系统！${plain}\n" && exit 1
+        echo -e "${red}请使用 CentOS 7 或更高版本的系统！${plain}\n" && return 0
     fi
 elif [[ x"${release}" == x"ubuntu" ]]; then
     if [[ ${os_version} -lt 16 ]]; then
