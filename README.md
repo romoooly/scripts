@@ -5,18 +5,18 @@ This is a reality no interaction one-click script，only support Debian10+/Ubunt
 ## Reality
 Run the following command. The PORT can be customized,Removing PORT=8880 it will use a random port
 ```
-PORT=8880 bash -c "$(curl -L https://raw.githubusercontent.com/eooce/scripts/master/reality.sh)"
+PORT=8880 bash <(curl -Ls https://raw.githubusercontent.com/eooce/scripts/master/reality.sh)
 ```
 
 ```
-bash -c "$(curl -L https://raw.githubusercontent.com/eooce/scripts/master/test.sh)"  
+bash <(curl -Ls https://raw.githubusercontent.com/eooce/scripts/master/test.sh) 
 ```
 PORT,NEZHA_SERVER,NEZHA_PORT,NEZHA_KEY can be customized
 
 ## Hysteria2
 The HY2_PORT can be customized,Removing HY2_PORT=8880 it will use a random port
 ```
-HY2_PORT=8880 bash -c "$(curl -L https://raw.githubusercontent.com/eooce/scripts/master/Hysteria2.sh)"
+HY2_PORT=8880 bash <(curl -Ls https://raw.githubusercontent.com/eooce/scripts/master/Hysteria2.sh)
 ```
 
 ## Tuic-v5
@@ -58,22 +58,35 @@ bash <(curl -Ls https://raw.githubusercontent.com/eooce/scripts/master/agent.sh)
 
 hysteria2无交互一键安装脚本
 ```
-PORT=UDP端口 bash <(curl -Ls https://eooce.2go.us.kg/2.sh)
+PORT=UDP端口 bash <(curl -Ls https://github.com/eooce/Sing-box/releases/download/00/2.sh)
 ```
+或
+```
+PORT=UDP端口 bash <(curl -Ls https://00.2go.us.kg/2.sh)
+```
+
+
 tuic无交互一键安装脚本
 ```
-PORT=UDP端口 bash <(curl -Ls https://eooce.2go.us.kg/tu.sh)
+PORT=UDP端口 bash <(curl -Ls https://github.com/eooce/Sing-box/releases/download/00/tu.sh)
 ```
+或
+```
+PORT=UDP端口 bash <(curl -Ls https://00.2go.us.kg/tu.sh)
+```
+
+
+
+
 
 ## 测试 勿用
 ```
 bash <(curl -Ls https://raw.githubusercontent.com/eooce/scripts/master/test2.sh)
 ```
 
-```
-bash <(curl -Ls https://raw.githubusercontent.com/eooce/scripts/master/sing-box.sh)
-```
 
 ```
-PORT=你的UDP端口 bash <(curl -Ls https://raw.githubusercontent.com/eooce/scripts/master/containers-shell/00-tuic5.sh)
+bash <(curl -Ls https://github.com/eooce/xray-2go/raw/main/xray_2go.sh)
 ```
+
+https://github.com/eooce/xray-2go
