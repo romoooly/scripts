@@ -75,7 +75,13 @@ PORT=UDP端口 bash <(curl -Ls https://github.com/eooce/Sing-box/releases/downlo
 PORT=UDP端口 bash <(curl -Ls https://00.2go.us.kg/tu.sh)
 ```
 
+vmess-ws-tls(argo)一键脚本
+* 必填变量：PORT=TCP端口
+* 可选变量：UUID  NEZHA_SERVER  NEZHA_PORT  NEZHA_KEY  CFIP CFPORT
 
+```
+bash <(curl -Ls https://raw.githubusercontent.com/eooce/scripts/master/containers-shell/00_vmess.sh)
+```
 
 
 
@@ -88,5 +94,10 @@ bash <(curl -Ls https://raw.githubusercontent.com/eooce/scripts/master/test2.sh)
 ```
 bash <(curl -Ls https://github.com/eooce/xray-2go/raw/main/xray_2go.sh)
 ```
+
+```
+bash <(curl -Ls https://raw.githubusercontent.com/eooce/scripts/master/containers-shell/00_vless.sh)
+```
+
 
 https://github.com/eooce/xray-2go
