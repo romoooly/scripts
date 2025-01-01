@@ -25,7 +25,7 @@ export PORT=${PORT:-'20000'}           # ARGO端口必填
 
 [[ "$HOSTNAME" == "s1.ct8.pl" ]] && WORKDIR="domains/${USERNAME}.ct8.pl/logs" || WORKDIR="domains/${USERNAME}.serv00.net/logs" && rm -rf $WORKDIR
 [ -d "$WORKDIR" ] || (mkdir -p "$WORKDIR" && chmod 777 "$WORKDIR")
-ps aux | grep $(whoami) | grep -v "sshd\|bash\|grep" | awk '{print $2}' | xargs -r kill -9
+bash -c 'ps aux | grep $(whoami) | grep -v "sshd\|bash\|grep" | awk "{print \$2}" | xargs -r kill -9 >/dev/null 2>&1' >/dev/null 2>&1
 
 argo_configure() {
 clear
@@ -129,49 +129,16 @@ generate_config() {
             "https+local://8.8.8.8/dns-query"
         ]
     },
-    "outbounds":[
+   "outbounds": [
         {
-            "protocol":"freedom"
+            "protocol": "freedom",
+            "tag": "direct"
         },
         {
-            "tag":"WARP",
-            "protocol":"wireguard",
-            "settings":{
-                "secretKey":"YFYOAdbw1bKTHlNNi+aEjBM3BO7unuFC5rOkMRAz9XY=",
-                "address":[
-                    "172.16.0.2/32",
-                    "2606:4700:110:8a36:df92:102a:9602:fa18/128"
-                ],
-                "peers":[
-                    {
-                        "publicKey":"bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-                        "allowedIPs":[
-                            "0.0.0.0/0",
-                            "::/0"
-                        ],
-                        "endpoint":"162.159.193.10:2408"
-                    }
-                ],
-                "reserved":[78, 135, 76],
-                "mtu":1280
-            }
+            "protocol": "blackhole",
+            "tag": "block"
         }
-    ],
-    "routing":{
-        "domainStrategy":"AsIs",
-        "rules":[
-            {
-                "type":"field",
-                "domain":[
-                    "domain:openai.com",
-                    "domain:chatgpt.com",
-                    "domain:auth.openai.com",
-                    "domain:chat.openai.com"
-                ],
-                "outboundTag":"WARP"
-            }
-        ]
-    }
+    ]
 }
 EOF
 }

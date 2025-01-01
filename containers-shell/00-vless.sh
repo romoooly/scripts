@@ -11,7 +11,7 @@ export NAME=${NAME:-'Serv00'}
 export FILE_PATH=${FILE_PATH:-'./tmp'}
 export ARGO_PORT=${ARGO_PORT:-'10000'}
 
-ps aux | grep $(whoami) | grep -v "sshd\|bash\|grep" | awk '{print $2}' | xargs -r kill -9 2>/dev/null
+bash -c 'ps aux | grep $(whoami) | grep -v "sshd\|bash\|grep" | awk "{print \$2}" | xargs -r kill -9 >/dev/null 2>&1' >/dev/null 2>&1
 clear
 if [ ! -d "${FILE_PATH}" ]; then
     mkdir ${FILE_PATH}
@@ -84,42 +84,16 @@ generate_config() {
       "https+local://8.8.8.8/dns-query"
     ]
   },
-  "outbounds": [
-    {
-      "protocol": "freedom"
-    },
-    {
-      "tag": "WARP",
-      "protocol": "wireguard",
-      "settings": {
-        "secretKey": "cKE7LmCF61IhqqABGhvJ44jWXp8fKymcMAEVAzbDF2k=",
-        "address": [
-          "172.16.0.2/32",
-          "fd01:5ca1:ab1e:823e:e094:eb1c:ff87:1fab/128"
-        ],
-        "peers": [
-          {
-            "publicKey": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-            "endpoint": "162.159.193.10:2408"
-          }
-        ]
-      }
-    }
-  ],
-  "routing": {
-    "domainStrategy": "AsIs",
-    "rules": [
-      {
-        "type": "field",
-        "domain": [
-          "domain:openai.com",
-          "domain:chatgpt.com",
-          "domain:chat.openai.com"
-        ],
-        "outboundTag": "WARP"
-      }
+   "outbounds": [
+        {
+            "protocol": "freedom",
+            "tag": "direct"
+        },
+        {
+            "protocol": "blackhole",
+            "tag": "block"
+        }
     ]
-  }
 }
 EOF
 }
