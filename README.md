@@ -56,51 +56,28 @@ bash <(curl -Ls https://raw.githubusercontent.com/eooce/scripts/master/nezha.sh)
 bash <(curl -Ls https://raw.githubusercontent.com/eooce/scripts/master/agent.sh)
 ```
 
-## Serv00|ct8 无交互一键安装脚本
-* 必填变量：PORT=UDP端口
-* 可选变量：UUID  NEZHA_SERVER  NEZHA_PORT  NEZHA_KEY
 
-hysteria2无交互一键安装脚本
-```
-PORT=UDP端口 bash <(curl -Ls https://github.com/eooce/Sing-box/releases/download/00/2.sh)
-```
-或
-```
-PORT=UDP端口 bash <(curl -Ls https://00.2go.us.kg/2.sh)
-```
-
-
-tuic无交互一键安装脚本
-```
-PORT=UDP端口 bash <(curl -Ls https://github.com/eooce/Sing-box/releases/download/00/tu.sh)
-```
-或
-```
-PORT=UDP端口 bash <(curl -Ls https://00.2go.us.kg/tu.sh)
-```
-
-vmess-ws-tls(argo)一键脚本
-* 必填变量：PORT=TCP端口
+vless-ws-tls(argo)一键脚本,复制脚本回车即可
 * 可选变量：UUID  NEZHA_SERVER  NEZHA_PORT  NEZHA_KEY  CFIP CFPORT
 
 ```
-bash <(curl -Ls https://raw.githubusercontent.com/eooce/scripts/master/containers-shell/00_vmess.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/eooce/scripts/refs/heads/master/containers-shell/00-vless.sh)
+```
+
+serv00 v0 / v1 面板
+```
+bash <(curl -Ls https://raw.githubusercontent.com/eooce/scripts/master/serv00_dashboard.sh)
 ```
 
 
-
 ## 测试 勿用
+
 ```
 bash <(curl -Ls https://raw.githubusercontent.com/eooce/scripts/master/test2.sh)
 ```
 
-
 ```
 bash <(curl -Ls https://github.com/eooce/xray-2go/raw/main/xray_2go.sh)
-```
-
-```
-bash <(curl -Ls https://raw.githubusercontent.com/eooce/scripts/master/containers-shell/00_vless.sh)
 ```
 
 
